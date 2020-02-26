@@ -78,6 +78,45 @@ def predict():
     return render_template("predict.html",prediction=model_prediction)
 
 
+@app.route('/emergency')
+def emergency():
+    #import herepy
+    #import json
+    import requests
+
+    #placesApi = herepy.PlacesApi('HYeyw8jHy0KxEuySBUjmaPNOfJs9ImQktb3_9XA6Eyg')
+    #response = placesApi.onebox_search([22.304106,73.1561776], 'hospital')
+
+    res=requests.get('https://ipinfo.io/')
+    data=res.json()
+    location=data['loc'].split(',')
+
+    lati=location[0]
+    longi=location[1]
+
+
+    import requests
+    response = requests.get('https://places.sit.ls.hereapi.com/places/v1/autosuggest?at='+lati+','+longi+'&q=hospital&apiKey=HYeyw8jHy0KxEuySBUjmaPNOfJs9ImQktb3_9XA6Eyg')
+ 
+
+    json_data = response.json()
+    results=json_data['results']
+    lst=[]
+    pl=[]
+
+    for i in results:
+        title=i['title']
+        pla=i['href']
+        lst.append(title)
+        pl.append(pla)
+
+    sno=[]
+    for i in range(1,len(lst)):
+        sno.append(i)
+    
+    obj = zip(sno, lst,pl)
+    return render_template('emergency.html',res=obj)
+
 if __name__=="__main__":
     app.run()
 
