@@ -156,7 +156,7 @@
             </li>
             
             <li class="nav-item">
-              <a class="nav-link" href="pages/icons/mdi.html">
+              <a class="nav-link" href="{{ url_for('emergency') }}">
                 <span class="menu-title">Emergency</span>
                 <i class="mdi mdi-contacts menu-icon"></i>
               </a>
@@ -230,6 +230,40 @@
                     </form>
                   </div>
                 </div>
+              </div>
+              <div class="col-5">
+                <div class="card">
+                  <div class="card-body">
+
+                    <p>Please input a number between 1 and 10:</p>
+
+                    <input id="numb">
+
+                    <button type="button" onclick="myFunction()">Submit</button>
+                    <button id="myBtn1">My Button 1</button>
+                    <button id="myBt2">My Button 2</button>
+
+                <script>
+
+                    function myButton() {
+  
+                    }
+                    function myFunction() {
+                     var x, text;
+
+                    // Get the value of the input field with id="numb"
+                    x = document.getElementById("numb").value;
+
+                    // If x is Not a Number or less than one or greater than 10
+                    if (isNaN(x) || x < 1 || x > 10) {
+                      document.getElementById("myBtn1").disabled = true;
+                    } else {
+                      document.getElementById("myBtn2").disabled = true;
+                    }
+                  }
+                </script>
+                    </div>
+                    </div>
               </div>
             </div>
           </div>

@@ -81,7 +81,7 @@ def predict():
 @app.route('/emergency')
 def emergency():
     #import herepy
-    #import json
+    import json
     import requests
 
     #placesApi = herepy.PlacesApi('HYeyw8jHy0KxEuySBUjmaPNOfJs9ImQktb3_9XA6Eyg')
@@ -97,24 +97,33 @@ def emergency():
 
     import requests
     response = requests.get('https://places.sit.ls.hereapi.com/places/v1/autosuggest?at='+lati+','+longi+'&q=hospital&apiKey=HYeyw8jHy0KxEuySBUjmaPNOfJs9ImQktb3_9XA6Eyg')
- 
+
 
     json_data = response.json()
+    
     results=json_data['results']
+    #results=results.pop()
     lst=[]
-    pl=[]
-
-    for i in results:
-        title=i['title']
-        pla=i['href']
+    #pl=[]
+    view1=[]
+    for i in range(2,len(results)-2):
+        title=results[i]['title']
+        pla=results[i]['id']
+    
         lst.append(title)
-        pl.append(pla)
+        
+        #pl.append(pla)
+        response1=requests.get('https://places.sit.ls.hereapi.com/places/v1/places/'+pla+';context=Zmxvdy1pZD03NmU3ZGM3OC1kNjk0LTU5ZTgtOTk3MS1mYjUxN2I1M2YyMTdfMTU4MzIxNTkxMjIxMF85MzU5Xzc2JnJhbms9MQ?app_id=vteXuQuLoQCZpY7asnWm&app_code=PSYtOzMtpewSp9FKymXKrw')
+        json_data1=response1.json()
+        view1.append(json_data1['view'])
 
+    
     sno=[]
     for i in range(1,len(lst)):
         sno.append(i)
     
-    obj = zip(sno, lst,pl)
+    obj = zip(sno, lst,view1)
+    #print(view1)
     return render_template('emergency.html',res=obj)
 
 if __name__=="__main__":

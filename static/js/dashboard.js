@@ -479,9 +479,9 @@
     
         // These labels appear in the legend and in the tooltips when hovering different arcs
         labels: [
-          'Search Engines',
-          'Direct Click',
-          'Bookmarks Click',
+          'Under Diagnosis',
+          'Healthy',
+          'Unhealthy',
         ]
       };
       var trafficChartOptions = {
