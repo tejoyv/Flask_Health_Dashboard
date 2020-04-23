@@ -14,7 +14,10 @@ ml_model = joblib.load(mul_class)
 @app.route('/')
 def index():
     doctor=Doctor.query.all()
-    return render_template('index.html',doctor=doctor)
+    dash_feed = pd.read_csv(r'feed.csv')
+    mean1 = dash_feed['field1'].mean()
+    mean2 = dash_feed['field2'].mean()
+    return render_template('index.html',doctor=doctor,mean1=mean1,mean2=mean2)
 
 @app.route('/prescription')
 def prescription():

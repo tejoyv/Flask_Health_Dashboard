@@ -223,7 +223,7 @@
             labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG'],
             datasets: [
               {
-                label: "CHN",
+                label: "Temp",
                 borderColor: gradientStrokeViolet,
                 backgroundColor: gradientStrokeViolet,
                 hoverBackgroundColor: gradientStrokeViolet,
@@ -235,7 +235,7 @@
                 data: [20, 40, 15, 35, 25, 50, 30, 20]
               },
               {
-                label: "USA",
+                label: "Pulse",
                 borderColor: gradientStrokeRed,
                 backgroundColor: gradientStrokeRed,
                 hoverBackgroundColor: gradientStrokeRed,
@@ -247,7 +247,7 @@
                 data: [40, 30, 20, 10, 50, 15, 35, 40]
               },
               {
-                label: "UK",
+                label: "Sa02",
                 borderColor: gradientStrokeBlue,
                 backgroundColor: gradientStrokeBlue,
                 hoverBackgroundColor: gradientStrokeBlue,
@@ -342,7 +342,7 @@
             labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG'],
             datasets: [
               {
-                label: "CHN",
+                label: "Temp",
                 borderColor: gradientStrokeViolet,
                 backgroundColor: gradientStrokeViolet,
                 hoverBackgroundColor: gradientStrokeViolet,
@@ -354,7 +354,7 @@
                 data: [20, 40, 15, 35, 25, 50, 30, 20]
               },
               {
-                label: "USA",
+                label: "Pulse",
                 borderColor: gradientStrokeRed,
                 backgroundColor: gradientStrokeRed,
                 hoverBackgroundColor: gradientStrokeRed,
@@ -366,7 +366,7 @@
                 data: [40, 30, 20, 10, 50, 15, 35, 40]
               },
               {
-                label: "UK",
+                label: "SaO2",
                 borderColor: gradientStrokeBlue,
                 backgroundColor: gradientStrokeBlue,
                 hoverBackgroundColor: gradientStrokeBlue,
