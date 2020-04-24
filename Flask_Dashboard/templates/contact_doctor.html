@@ -4,28 +4,31 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dashboard</title>
+    <title>Contact Doctor</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="/static/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="/static/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="static/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="static/vendors/css/vendor.bundle.base.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
     <!-- Layout styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+    
     <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
     <!-- End layout styles -->
-    <link rel="shortcut icon" href="/static/images/favicon.png" />
-
+    <link rel="shortcut icon" href="static/images/favicon.png" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
     <div class="container-scroller">
-      <!-- partial:partials/_navbar.html -->
-      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+            <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
           <a class="navbar-brand brand-logo" href="{{ url_for('index') }}"></a>
-          <a class="navbar-brand brand-logo-mini" href="{{ url_for('index') }}"><img src="/static/images/logo-mini.svg" alt="logo" /></a>
+          <a class="navbar-brand brand-logo-mini" href="{{ url_for('index') }}"><img src="static/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -35,7 +38,7 @@
             <li class="nav-item nav-profile dropdown">
               <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
                 <div class="nav-profile-img">
-                  <img src="/static/images/faces/face1.jpg" alt="image">
+                  <img src="static/images/faces/face1.jpg" alt="image">
                   <span class="availability-status online"></span>
                 </div>
                 <div class="nav-profile-text">
@@ -62,7 +65,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="/static/images/faces/face4.jpg" alt="image" class="profile-pic">
+                    <img src="static/images/faces/face4.jpg" alt="image" class="profile-pic">
                   </div>
                   <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Warfarin Tabs suggested</h6>
@@ -72,7 +75,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="/static/images/faces/face2.jpg" alt="image" class="profile-pic">
+                    <img src="static/images/faces/face2.jpg" alt="image" class="profile-pic">
                   </div>
                   <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Stella high temperature</h6>
@@ -82,7 +85,7 @@
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item preview-item">
                   <div class="preview-thumbnail">
-                    <img src="/static/images/faces/face3.jpg" alt="image" class="profile-pic">
+                    <img src="static/images/faces/face3.jpg" alt="image" class="profile-pic">
                   </div>
                   <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
                     <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Lisoprin 25 MG delivered</h6>
@@ -95,7 +98,7 @@
             </li>
             
             <li class="nav-item nav-logout d-none d-lg-block">
-              <a class="nav-link" href="{{ url_for('logout')}}">
+              <a class="nav-link" href="{{url_for('logout')}}">
                 <i class="mdi mdi-power"></i>
               </a>
             </li>
@@ -118,7 +121,7 @@
             <li class="nav-item nav-profile">
               <a href="#" class="nav-link">
                 <div class="nav-profile-image">
-                  <img src="/static/images/faces/face1.jpg" alt="profile">
+                  <img src="static/images/faces/face1.jpg" alt="profile">
                   <span class="login-status online"></span>
                   <!--change to offline or busy as needed-->
                 </div>
@@ -148,7 +151,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('contact_doctor') }}">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Contact Doctor</span>
                 <i class="menu-arrow"></i>
                 <i class="mdi mdi-crosshairs-gps menu-icon"></i>
@@ -188,146 +191,118 @@
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-            <div class="page-header">
-              <h3 class="page-title">
-                <span class="page-title-icon bg-gradient-primary text-white mr-2">
-                  <i class="mdi mdi-home"></i>
-                </span> Dashboard </h3>
-              <nav aria-label="breadcrumb">
-                <ul class="breadcrumb">
-                  <li class="breadcrumb-item active" aria-current="page">
-                    <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <div class="row">
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-danger card-img-holder text-white">
-                  <div class="card-body">
-                    <img src="/static/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Average Body Temperature <i class="mdi mdi-chart-line mdi-24px float-right"></i>
-                    </h4><br>
-                    <h2 class="mb-5">{{mean1.round()}} degree celcius</h2>
-                    <h6 class="card-text">Increased by 1 degree celcius</h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-info card-img-holder text-white">
-                  <div class="card-body">
-                    <img src="/static/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Average Pulse Rate <i class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                    </h4><br>
-                    <h2 class="mb-5">{{mean2}} bpm</h2>
-                    <h6 class="card-text">Decreased by 10 bpm</h6>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 stretch-card grid-margin">
-                <div class="card bg-gradient-success card-img-holder text-white">
-                  <div class="card-body">
-                    <img src="/static/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
-                    <h4 class="font-weight-normal mb-3">Average blood pressure <i class="mdi mdi-diamond mdi-24px float-right"></i>
-                    </h4><br>
-                    <h2 class="mb-5">90 / 80 mm Hg</h2>
-                    <h6 class="card-text">Increased by 2 mm Hg</h6>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-7 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="clearfix">
-                      <h4 class="card-title float-left">Vital Body Parameters</h4>
-                      <div id="visit-sale-chart-legend" class="rounded-legend legend-horizontal legend-top-right float-right"></div>
-                    </div>
-                    <canvas id="visit-sale-chart" class="mt-4"></canvas>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-5 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Health Analytics</h4>
-                    <canvas id="traffic-chart"></canvas>
-                    <div id="traffic-chart-legend" class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 grid-margin">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Recent Drugs</h4>
-                    <div class="table-responsive">
-                      <table class="table">
+            <div class="">
+              <h2 class="" style="text-align: center;color: purple"> Contact Doctor </h2>
+            </div><br><br>
+            <div class="container">
+                <div class="row">
+                    <table class="table table-hover table-striped">
                         <thead>
-                          <tr>
-                            <th> Doctor </th>
-                            <th> Drug Name </th>
-                            <th> Status </th>
-                            <th> Dosage </th>
-                            <th> Frequency </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          {% for i in doctor %}
+                        <tr class="thead-dark">
+                            <th>Sr No.</th>
+                            <th>Doctor Name</th>
+                            <th>Clinic Details</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                        <tbody>  
+                            <tr>
+                                <td>01</td>
+                                <td style="max-width:300px">
+                                    <h6>Dr. Daniel Morano</h6>
+                                </td>
+                                <td>
+                                    Zydus Healthcare,Vasna
+                                </td>
+                                <td>
+                                    <a href="tel:1" class="btn btn-success"><i class="fa fa-phone"></i></a> | 
+                                    <a href="mailto:name@gmail.com" class="btn btn-danger"><i class="fa fa-envelope"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    02
+                                </td>
+                                <td style="max-width:300px">
+                                    <h6>Dr. Felipe Mckenna</h6>
+                                </td>
+                                <td>
+                                    Tricolor Hospital,Akota
+                                </td>
+                                <td>
+                                    <a href="tel:1" class="btn btn-success"><i class="fa fa-phone"></i></a> | 
+                                    <a href="mailto:name@gmail.com" class="btn btn-danger"><i class="fa fa-envelope"></i></a>
+                                </td>
+                            </tr>
+                            
+                              <tr>
+                                <td>
+                                    03
+                                </td>
+                                <td style="max-width:300px">
+                                    <h6>Dr. Lio Snyder</h6>
+                                </td>
+                                <td>
+                                    Welcare Clinic, Subhanpura
+                                </td>
+                                <td>
+                                    <a href="tel:1" class="btn btn-success"><i class="fa fa-phone"></i></a> | 
+                                    <a href="mailto:name@gmail.com" class="btn btn-danger"><i class="fa fa-envelope"></i></a>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td>
+                                    04
+                                </td>
+                                <td style="max-width:300px">
+                                    <h6>Dr. Carole Liberman</h6>
+                                </td>
+                                <td>
+                                    HCG, New Alkapuri
+                                </td>
+                                <td>
+                                    <a href="tel:1" class="btn btn-success"><i class="fa fa-phone"></i></a> | 
+                                    <a href="mailto:name@gmail.com" class="btn btn-danger"><i class="fa fa-envelope"></i></a>
+                                </td>
+                            </tr>
                             <tr>
                               <td>
-                                <img src="/static/images/faces/face1.jpg" class="mr-2" alt="image"> {{ i.doctor }} </td>
-                              <td> {{ i.drugName }} </td>
-                              <td>
-                                <label class="badge badge-gradient-success">{{ i.status }}</label>
+                                  04
                               </td>
-                              <td>{{ i.dosage }}</td>
-                              <td> {{ i.frequency }} </td>
-                            </tr>
-                          {% endfor %}
+                              <td style="max-width:300px">
+                                  <h6>Dr. Jenett James</h6>
+                              </td>
+                              <td>
+                                  Nurture Clinic, Ellora Park
+                              </td>
+                              <td>
+                                  <a href="tel:1" class="btn btn-success"><i class="fa fa-phone"></i></a> | 
+                                  <a href="mailto:name@gmail.com" class="btn btn-danger"><i class="fa fa-envelope"></i></a>
+                              </td>
+                          </tr>
+                          <tr>
+                            <td>
+                                04
+                            </td>
+                            <td style="max-width:300px">
+                                <h6>Dr. Rhea Patel</h6>
+                            </td>
+                            <td>
+                                Welness Clinic, Diwalipura
+                            </td>
+                            <td>
+                                <a href="tel:1" class="btn btn-success"><i class="fa fa-phone"></i></a> | 
+                                <a href="mailto:name@gmail.com" class="btn btn-danger"><i class="fa fa-envelope"></i></a>
+                            </td>
+                        </tr>
                         </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </table>
             </div>
-            <div class="row">
-              <div class="col-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Recent Pharma Promotions</h4>
-                    <div class="d-flex">
-                      <div class="d-flex align-items-center text-muted font-weight-light">
-                        <i class="mdi mdi-clock icon-sm mr-2"></i>
-                        <span>October 3rd, 2020</span>
-                      </div>
-                    </div>
-                    <div class="row mt-3">
-                      <div class="col-6 pr-1">
-                        <a href="https://pharmeasy.in/" target="_blank"><img src="/static/images/dashboard/pharmeasy.jpg" class="mb-2 mw-100 w-100 rounded" alt="image"></a>
-                        <a href="https://www.netmeds.com/" target="_blank"><img src="/static/images/dashboard/netmeds.png" class="mw-100 w-100 rounded" alt="image"></a>
-                      </div>
-                      <div class="col-6 pl-1">
-                        <a href="https://www.medlife.com/" target="_blank"><img src="/static/images/dashboard/Medlife.jpg" class="mb-2 mw-100 w-100 rounded" alt="image"></a>
-                        <a href="https://www.apollopharmacy.in/" target="_blank"><img src="/static/images/dashboard/Appolo.png" class="mw-100 w-100 rounded" alt="image"></a>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-              </div>
             </div>
-          <!-- content-wrapper ends -->
-          <!-- partial:partials/_footer.html -->
-          <footer class="footer">
-            <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2020 <a href="" target="_blank">Tejoy Vachhrajani</a>. All rights reserved.</span>
-              <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
             </div>
-          </footer>
+          </div>
+          
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -336,19 +311,17 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="/static/vendors/js/vendor.bundle.base.js"></script>
+    <script src="static/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
-    <script src="/static/vendors/chart.js/Chart.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
-    <script src="/static/js/off-canvas.js"></script>
-    <script src="/static/js/hoverable-collapse.js"></script>
-    <script src="/static/js/misc.js"></script>
+    <script src="static/js/off-canvas.js"></script>
+    <script src="static/js/hoverable-collapse.js"></script>
+    <script src="static/js/misc.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page -->
-    <script src="/static/js/dashboard.js"></script>
-    <script src="/static/js/todolist.js"></script>
+    <script src="static/js/file-upload.js"></script>
     <!-- End custom js for this page -->
   </body>
 </html>

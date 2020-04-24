@@ -23,6 +23,10 @@ def index():
 def prescription():
     return render_template('drug_prescription.html')
 
+@app.route('/contact_doctor')
+def contact_doctor():
+    return render_template('contact_doctor.html')
+
 @app.route('/live_monitor')
 def live_monitor():
     return render_template('live_monitor.html')
